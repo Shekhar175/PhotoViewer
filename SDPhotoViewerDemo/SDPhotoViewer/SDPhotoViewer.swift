@@ -15,13 +15,13 @@ private let VIEW_ALPHA            : CGFloat = 0.6
 private let ANIMATION_DURATION    : TimeInterval = 0.4
 private let VIEW_BACKGROUND_COLOR : UIColor = UIColor.black
 
-class SDPhotoViewer: UIView, UIScrollViewDelegate {
+public class SDPhotoViewer: UIView, UIScrollViewDelegate {
     
     private var zoomedImgView : UIImageView?
     private var originalImageFrame = CGRect()
     private var scrollView : UIScrollView = UIScrollView()
     
-    class func showImageFrom(imageView: UIImageView) {
+    class public func showImageFrom(imageView: UIImageView) {
         if imageView.image != nil {
             
             let objSdImageZoom = SDPhotoViewer()
@@ -117,11 +117,11 @@ class SDPhotoViewer: UIView, UIScrollViewDelegate {
         }
     }
     
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+    public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return self.zoomedImgView
     }
     
-    func updateScrollViewZoomScales() {
+    private func updateScrollViewZoomScales() {
         self.scrollView.maximumZoomScale = 5.0
         self.scrollView.zoomScale = 1.0
     }
